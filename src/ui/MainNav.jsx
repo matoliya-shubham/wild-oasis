@@ -1,12 +1,20 @@
+import { NavLink } from "react-router-dom";
 import styled from "styled-components";
+import {
+  HiOutlineCalendarDays,
+  HiOutlineCog6Tooth,
+  HiOutlineHome,
+  HiOutlineHomeModern,
+  HiOutlineUsers,
+} from "react-icons/hi2";
+// const NavList = styled.ul`
+//   display: flex;
+//   flex-direction: column;
+//   gap: 0.8rem;
+// `;
 
-const NavList = styled.ul`
-  display: flex;
-  flex-direction: column;
-  gap: 0.8rem;
-`;
-
-const Link = styled.a`
+// styled.a is an anchor tag which will reload the page on every route change hence we use NavLink by react-router-dom
+const StyledLink = styled(NavLink)`
   &:link,
   &:visited {
     display: flex;
@@ -44,3 +52,42 @@ const Link = styled.a`
     color: var(--color-brand-600);
   }
 `;
+
+export default function MainNav() {
+  return (
+    <nav>
+      <ul>
+        <li>
+          <StyledLink to="/dashboard">
+            <HiOutlineHome />
+            <span>Home</span>
+          </StyledLink>
+        </li>
+        <li>
+          <StyledLink to="/bookings">
+            <HiOutlineCalendarDays />
+            <span>Bookings</span>
+          </StyledLink>
+        </li>
+        <li>
+          <StyledLink to="/cabins">
+            <HiOutlineHomeModern />
+            <span>Cabins</span>
+          </StyledLink>
+        </li>
+        <li>
+          <StyledLink to="/users">
+            <HiOutlineUsers />
+            <span>Users</span>
+          </StyledLink>
+        </li>
+        <li>
+          <StyledLink to="/settings">
+            <HiOutlineCog6Tooth />
+            <span>Settings</span>
+          </StyledLink>
+        </li>
+      </ul>
+    </nav>
+  );
+}
