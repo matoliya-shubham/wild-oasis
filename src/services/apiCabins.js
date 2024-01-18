@@ -40,4 +40,3 @@ export async function deleteCabin(id) {
   }
   return data;
 }
-//Test
